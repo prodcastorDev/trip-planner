@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { Location } from '../../types/Location';
 import { Journeys } from '../Journeys/Journeys';
 import { Locations } from '../Locations/Locations';
-import { getLocations } from '../../services/locationServices';
-import { getJourneys } from '../../services/journeyServices';
+import { getLocations } from '../../services/location';
+import { getJourneys } from '../../services/journey';
 import { Journey } from '../../types/Journey';
 import { Input } from '../Input/Input';
 import { Loader } from '../Loader/Loader';
@@ -36,7 +36,7 @@ export const Homepage = (): JSX.Element => {
     }
   };
 
-  const handleJourney = useCallback(async () => {
+  const handleJourney = useCallback(async (): Promise<void> => {
     const {
       data: { journeys },
     }: { data: { journeys: Journey[] } } = await getJourneys({
@@ -60,31 +60,21 @@ export const Homepage = (): JSX.Element => {
     setToLocationID(id);
   };
 
-  const renderFromLocations = (): JSX.Element => {
-    if (locationsFrom.length) {
-      return (
-        <>
-          <h1>From</h1>
-          <Locations selectedId={fromLocationID} locations={locationsFrom} handleOnCardClick={handleFromLocationID} />
-        </>
-      );
-    }
+  const renderFromLocations = (): JSX.Element | null =>
+    locationsFrom.length ? (
+      <>
+        <h1>From</h1>
+        <Locations selectedId={fromLocationID} locations={locationsFrom} handleOnCardClick={handleFromLocationID} />
+      </>
+    ) : null;
 
-    return <></>;
-  };
-
-  const renderToLocations = (): JSX.Element => {
-    if (locationsTo.length) {
-      return (
-        <>
-          <h1>To</h1>
-          <Locations selectedId={toLocationID} locations={locationsTo} handleOnCardClick={handleToLocationID} />
-        </>
-      );
-    }
-
-    return <></>;
-  };
+  const renderToLocations = (): JSX.Element | null =>
+    locationsTo.length ? (
+      <>
+        <h1>To</h1>
+        <Locations selectedId={toLocationID} locations={locationsTo} handleOnCardClick={handleToLocationID} />
+      </>
+    ) : null;
 
   const renderForm = (): JSX.Element => (
     <div className="form container d-flex justify-content-around align-items-center">
@@ -99,24 +89,18 @@ export const Homepage = (): JSX.Element => {
     </div>
   );
 
-  const renderJourneys = (): JSX.Element => {
-    if (journeys.length) {
-      return (
-        <>
-          <h1>Journeys</h1>
-          <Journeys journeys={journeys} />
-        </>
-      );
-    }
-
-    return <></>;
-  };
+  const renderJourneys = (): JSX.Element | null =>
+    journeys.length ? (
+      <>
+        <h1>Journeys</h1>
+        <Journeys journeys={journeys} />
+      </>
+    ) : null;
 
   useEffect(() => {
     if (!!fromLocationID && !!toLocationID && !!departureTime) {
       setLoading(true);
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      handleJourney();
+      void handleJourney();
     }
   }, [departureTime, fromLocationID, handleJourney, toLocationID]);
 

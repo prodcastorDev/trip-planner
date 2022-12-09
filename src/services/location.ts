@@ -1,5 +1,5 @@
 import axios from '../Axios/axios';
-import { URLs } from '../constants/services';
+import { LOCATIONS_URL } from '../constants/URLS';
 import { Location } from '../types/Location';
 
 interface Params {
@@ -8,11 +8,11 @@ interface Params {
 
 const getParams = (params: Params) => {
   return {
-    query: params.query || '',
+    query: params.query,
   };
 };
 
 export const getLocations = (params: Params) =>
-  axios.get<Location[]>(`${URLs.LOCATIONS}`, {
+  axios.get<Location[]>(`${LOCATIONS_URL}`, {
     params: getParams(params),
   });

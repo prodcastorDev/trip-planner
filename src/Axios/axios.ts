@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { URLs } from '../constants/services';
+import { BASE_URL } from '../constants/URLS';
 
 const config = {
-  baseURL: URLs.BASE,
+  baseURL: BASE_URL,
 };
 
 const instance = axios.create(config as AxiosRequestConfig);
