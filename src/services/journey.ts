@@ -1,6 +1,6 @@
-import instance from '../Axios/axios';
-import { JOURNEYS_URL } from '../constants/URLS';
-import { JourneyAPIResponse } from '../types/APIResponse';
+import axios from '../axios/axios';
+import { JOURNEYS_URL } from 'constants/URLS';
+import { JourneyAPIResponse } from 'types/APIResponse';
 
 interface Params {
   from: string;
@@ -17,6 +17,6 @@ const getParams = (params: Params) => {
 };
 
 export const getJourneys = (params: Params) =>
-  instance.get<JourneyAPIResponse>(`${JOURNEYS_URL}`, {
+  axios.get<JourneyAPIResponse>(`${JOURNEYS_URL}`, {
     params: getParams(params),
   });

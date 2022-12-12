@@ -1,6 +1,6 @@
-import axios from '../Axios/axios';
-import { LOCATIONS_URL } from '../constants/URLS';
-import { Location } from '../types/Location';
+import axios from '../axios/axios';
+import { LOCATIONS_URL } from 'constants/URLS';
+import { Location } from 'types/Location';
 
 interface Params {
   query: string;

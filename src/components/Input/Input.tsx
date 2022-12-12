@@ -1,17 +1,7 @@
-import './Input.css';
+import { InputProps } from 'components/Input/types/InputProps';
+import 'components/Input/Input.css';
 
-interface Props {
-  heading: string;
-  handleOnChange: (event: {
-    target: {
-      value: string;
-    };
-  }) => Promise<void> | void;
-  type: 'text' | 'datetime-local';
-  placeholder: string;
-}
-
-export const Input = ({ heading, handleOnChange, type, placeholder }: Props) => {
+export const Input = ({ heading, onChange, type, placeholder }: InputProps) => {
   return (
     <span>
       <h3>{heading}</h3>
@@ -21,7 +11,8 @@ export const Input = ({ heading, handleOnChange, type, placeholder }: Props) => 
         name={heading + type}
         placeholder={placeholder}
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onChange={handleOnChange}
+        onChange={onChange}
+        className="styled-input"
       />
     </span>
   );

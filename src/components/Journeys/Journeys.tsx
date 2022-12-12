@@ -1,12 +1,9 @@
-import { Journey } from '../../types/Journey';
-import { Leg } from '../../types/Leg';
-import './Journeys.css';
+import { Journey } from 'types/Journey';
+import { Leg } from 'types/Leg';
+import { JourneyProps } from 'components/Journeys/types/JourneyProps';
+import 'components/Journeys/Journeys.css';
 
-interface Props {
-  journeys: Journey[];
-}
-
-export const Journeys = ({ journeys }: Props): JSX.Element => {
+export const Journeys = ({ journeys }: JourneyProps): JSX.Element => {
   return (
     <>
       {journeys.map((journey: Journey) => (

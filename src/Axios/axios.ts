@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { BASE_URL } from '../constants/URLS';
+import { BASE_URL } from 'constants/URLS';
 
 const config = {
   baseURL: BASE_URL,

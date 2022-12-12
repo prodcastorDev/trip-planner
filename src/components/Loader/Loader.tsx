@@ -1,4 +1,4 @@
-import './Loader.css';
+import 'components/Loader/Loader.css';
 
 export const Loader = () => (
   <div id="backdrop">

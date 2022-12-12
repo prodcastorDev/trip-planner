@@ -1,5 +1,5 @@
-import { Line } from './Line';
-import { Stop } from './Stop';
+import { Line } from 'types/Line';
+import { Stop } from 'types/Stop';
 
 export interface Departure {
   tripId: string;

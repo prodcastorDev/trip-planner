@@ -1,5 +1,5 @@
-import { Products } from './Products';
-import { Station } from './Station';
+import { Products } from 'types/Products';
+import { Station } from 'types/Station';
 
 export interface Stop {
   type: string;

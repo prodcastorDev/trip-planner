@@ -1,4 +1,4 @@
-import { Journey } from './Journey';
+import { Journey } from 'types/Journey';
 
 export interface JourneyAPIResponse {
   earlierRef: string;

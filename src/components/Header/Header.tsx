@@ -1,5 +1,5 @@
 import { Container, Navbar } from 'react-bootstrap';
-import { ROOT_URL } from '../../constants/URLS';
+import { ROOT_URL } from 'constants/URLS';
 
 export const Header = (): JSX.Element => {
   return (
