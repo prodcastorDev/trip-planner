@@ -7,4 +7,5 @@ export interface InputProps {
   }) => Promise<void> | void;
   type: 'text' | 'datetime-local';
   placeholder: string;
+  initialValue?: string;
 }

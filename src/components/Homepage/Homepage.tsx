@@ -12,7 +12,7 @@ import 'components/Homepage/Homepage.css';
 export const Homepage = (): JSX.Element => {
   const [locationsFrom, setLocationsFrom] = useState<Location[]>([]);
   const [locationsTo, setLocationsTo] = useState<Location[]>([]);
-  const [departureTime, setDepartureTime] = useState<string>('');
+  const [departureTime, setDepartureTime] = useState<string>('2023-01-01T00:00');
   const [journeys, setJourneys] = useState<Journey[]>([]);
   const [fromLocationID, setFromLocationID] = useState<string>('');
   const [toLocationID, setToLocationID] = useState<string>('');
@@ -85,6 +85,7 @@ export const Homepage = (): JSX.Element => {
         heading="Departure Time"
         placeholder="Departure Time"
         onChange={handleDateTimeChange}
+        initialValue="2023-01-01T00:00"
       />
     </div>
   );
