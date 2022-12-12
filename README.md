@@ -17,9 +17,9 @@ In the project directory, you can run:
 
 # Directory structure
 
-## Axios
+## Utils
 
-    Contains the instance for axios which creates the API connection once so we do not have to do it again.
+    Contains the helper functions for different functionalities.
 
 ## components
 

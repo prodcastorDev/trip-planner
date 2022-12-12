@@ -1,4 +1,4 @@
-import axios from '../axios/axios';
+import axios from 'utils/axios';
 import { LOCATIONS_URL } from 'constants/URLS';
 import { Location } from 'types/Location';
 
